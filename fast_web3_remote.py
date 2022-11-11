@@ -257,7 +257,6 @@ class FastWeb3:
         return datetime.utcfromtimestamp( block.timestamp ).strftime('%Y-%m-%d %H:%M:%S')
 
 
-""" BB try with Alchemy RPC https://eth-mainnet.g.alchemy.com/v2/HbYTheODPkFXQSpgNanVch1NEOYTz8Sk 
 # (ACHTUNG this is a secret - obscure before committing or put in an ENV or secrets file that is ignored)
 class FastWeb3:
     #def __init__(self, ipc_path='~/.ethereum/geth.ipc', timeout=1):
