@@ -4,15 +4,19 @@ import datetime
 def hash0x_to_bytes(hash0x):
     return bytearray.fromhex(hash0x[2:])
 
+
 def build_rows(responses):
     for response in responses:
         block_number = response['id']
         block = response['result']
         yield (
-            block_number,
+            block_number,            
             int(block['timestamp'], 16),
             hash0x_to_bytes(block['miner']),
-            hash0x_to_bytes(block['extraData']))
+            hash0x_to_bytes(block['extraData'])
+        )
+        
+           
 
 def decode_extra_data(e):
     try:
@@ -21,6 +25,11 @@ def decode_extra_data(e):
         return e.decode('latin-1')
 
 class Block:
+    ##BB add here the parameters that we need - 
+    # gas_used? - to assign to this block a % of the days's energy consumption? > maybe better to use difficulty?
+    # difficulty?
+    # maybe transactions if we want to do a per TX split - maybe it's enough the Nr 
+    # block_number is enough to get the etherscan link https://etherscan.io/block/15410580
     def __init__(self, block_number, timestamp, miner, extra_data):
         self.block_number = block_number
         self.timestamp = timestamp
@@ -46,6 +55,7 @@ class BlockIndex:
             timestamp INTEGER, \
             miner BLOB, \
             extra_data BLOB)'
+            #BB add here the fields that are needed in the table
         self.db.execute(cmd)
         
     def __del__(self):

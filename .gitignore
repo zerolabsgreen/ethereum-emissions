@@ -14,3 +14,6 @@ overleaf
 unused
 research
 download-input.sh
+
+## TODO - create a sample config_example.py without the secret or import the secret
+config.py

@@ -16,5 +16,6 @@
     "(^|\\W)tw": "taiwan",
     "(^|[^r])eu": "europe",
     "(^|\\W)ua": "ukraine",
+    "asia-east": "asia-east",
     "asia": "asia"
 }
